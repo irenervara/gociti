@@ -1,0 +1,191 @@
+[
+  {
+    "AmtofLines": 9,
+    "Frequency": 7,
+    "KmTravel": 19.7,
+    "lat": 31.19977581,
+    "lon": 121.41984402
+  },
+  {
+    "AmtofLines": 5,
+    "Frequency": 5,
+    "KmTravel": 16.7,
+    "lat": 31.20249092,
+    "lon": 121.42666603
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 4,
+    "KmTravel": 59.2,
+    "lat": 31.20413368,
+    "lon": 121.43056758
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 6,
+    "KmTravel": 8.1,
+    "lat": 31.20306132,
+    "lon": 121.42525143
+  },
+  {
+    "AmtofLines": 3,
+    "Frequency": 5,
+    "KmTravel": 17.1,
+    "lat": 31.2040196,
+    "lon": 121.4247723
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 4,
+    "KmTravel": 8.1,
+    "lat": 31.20459,
+    "lon": 121.42557086
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 3,
+    "KmTravel": 38.1,
+    "lat": 31.19970736,
+    "lon": 121.41601092
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 3,
+    "KmTravel": 13.4,
+    "lat": 31.20139575,
+    "lon": 121.41544051
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 4,
+    "KmTravel": 14.5,
+    "lat": 31.20299287,
+    "lon": 121.4186804
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 5,
+    "KmTravel": 15.6,
+    "lat": 31.20340356,
+    "lon": 121.41728862
+  },
+  {
+    "AmtofLines": 3,
+    "Frequency": 4,
+    "KmTravel": 18.4,
+    "lat": 31.20493224,
+    "lon": 121.42205718
+  },
+  {
+    "AmtofLines": 3,
+    "Frequency": 4,
+    "KmTravel": 18.4,
+    "lat": 31.20541138,
+    "lon": 121.42077948
+  },
+  {
+    "AmtofLines": 3,
+    "Frequency": 5,
+    "KmTravel": 15.6,
+    "lat": 31.20354046,
+    "lon": 121.41671821
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 4,
+    "KmTravel": 12.6,
+    "lat": 31.20664345,
+    "lon": 121.41703764
+  },
+  {
+    "AmtofLines": 5,
+    "Frequency": 4,
+    "KmTravel": 20.3,
+    "lat": 31.20682598,
+    "lon": 121.42919862
+  },
+  {
+    "AmtofLines": 5,
+    "Frequency": 4,
+    "KmTravel": 20.3,
+    "lat": 31.20732793,
+    "lon": 121.4290389
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 5,
+    "KmTravel": 10.8,
+    "lat": 31.20757891,
+    "lon": 121.42458977
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 4,
+    "KmTravel": 11.2,
+    "lat": 31.21040811,
+    "lon": 121.42490919
+  },
+  {
+    "AmtofLines": 5,
+    "Frequency": 3,
+    "KmTravel": 21.4,
+    "lat": 31.21230184,
+    "lon": 121.4290389
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 4,
+    "KmTravel": 9.6,
+    "lat": 31.21581552,
+    "lon": 121.42723643
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 5,
+    "KmTravel": 11.3,
+    "lat": 31.21549609,
+    "lon": 121.42673448
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 5,
+    "KmTravel": 9.4,
+    "lat": 31.21348828,
+    "lon": 121.42566212
+  },
+  {
+    "AmtofLines": 3,
+    "Frequency": 4,
+    "KmTravel": 11.3,
+    "lat": 31.21298632,
+    "lon": 121.42470385
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 5,
+    "KmTravel": 9.8,
+    "lat": 31.21141201,
+    "lon": 121.42479511
+  },
+  {
+    "AmtofLines": 2,
+    "Frequency": 3,
+    "KmTravel": 10.2,
+    "lat": 31.21127512,
+    "lon": 121.41861195
+  },
+  {
+    "AmtofLines": 1,
+    "Frequency": 4,
+    "KmTravel": 11.2,
+    "lat": 31.21091006,
+    "lon": 121.41742551
+  },
+  {
+    "AmtofLines": 3,
+    "Frequency": 4,
+    "KmTravel": 10.9,
+    "lat": 31.21038529,
+    "lon": 121.41450505
+  }
+]

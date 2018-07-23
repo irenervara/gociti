@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Go Citi !</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- leaflet -->
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <!-- geojson -->
+  <script src="data/RTLines.geoJSON"></script>
+  <script src="data/airpollution.geoJSON"></script>
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body class="sticky-footer bg-light" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar-expand-lg navbar-light bg-light static-top" id="mainNav">
+    <!-- <a class="navbar-brand" href="newNAVBAR-closed.html">Go City !</a> -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+<!-- sidebar -->
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="GoCity">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-dot-circle-o"></i>
+            <span class="nav-link-text"><b><i>Go Citi</i></b></span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Monitoring">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMonitoring" data-parent="#exampleAccordion" href="Campaigns.html">
+            <i class="fa fa-bar-chart"></i>
+            <span class="nav-link-text">Monitoring</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMonitoring">
+            <li>
+              <a href="MonitoringMob.html">Mobility</a>
+            </li>
+            <li>
+              <a>Built Environment</a>
+            </li>
+            <li>
+              <a href="MonitoringEnviro.html">Environmental Cleanliness</a>
+            </li>
+            <li>
+              <a>Ressource Efficiency</a>
+            </li>
+            <li>
+              <a>Daily Needs</a>
+            </li>
+            <li>
+              <a href="MonitoringBarcelona.html">Smart Citizen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Campaigns">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCampaigns" data-parent="#exampleAccordion" href="Campaigns.html">
+            <i class="fa fa-rocket"></i>
+            <span class="nav-link-text">City Campaigns</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseCampaigns">
+            <li>
+              <a href="CityCampaigns.html">Latest</a>
+            </li>
+            <!-- <li>
+              <a href="CityCampaigns.html">Rewards</a>
+            </li> -->
+            <!-- <li>
+              <a href="CityCampaigns.html">Number of Points</a>
+            </li>
+            <li>
+              <a href="CityCampaigns.html">Required Timespan</a>
+            </li> -->
+            <!-- <li>
+              <a href="CityCampaigns.html">Scale Impact</a>
+            </li> -->
+            <li>
+              <a href="CampaignForm.html">Add Campaign</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My Account">
+          <a class="nav-link" href="MyAccount.html">
+            <i class="fa fa-user"></i>
+            <span class="nav-link-text">My Account</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="AboutUs">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAboutUs" data-parent="#exampleAccordion">
+            <i class="fa fa-home"></i>
+            <span class="nav-link-text">About Us</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseAboutUs">
+            <li>
+              <a href="What.html">What do we do?</a>
+            </li>
+            <!-- <li>
+              <a href="What.html #How">How does it work?</a>
+            </li> -->
+          </ul>
+        </li>
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left" style="font-size:25px"; height="50px"></i>
+            </a>
+          </li>
+        </ul>
+      </ul>
+
+
+<!-- wrapper -->
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid" id="myspace">
+
+
+      <div class=intro-text id=intro-text>
+          <!-- <a class="nav-link text-left" id="sidenavToggler"><pi class="fa fa-fw fa-angle-left"style="font-size:40px"></pi> -->
+          <h2>Add Campaign</h2>
+      </div>
+      </br>
+
+
+
+
+
+
+<!-- form -->
+
+<div class="contact">
+    <div class="alert">Your message has been sent</div>
+    <form id="contactForm">
+      <div class="form-group" >
+        <label for="exampleFormControlInput1">User ID</label>
+        <input type="email" class="form-control" name="userid" id="email" required placeholder="name@example.com">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Title of the campaign</label>
+        <input type="text" class="form-control" name="title" id="title" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Short Description</label>
+        <textarea class="form-control" name="shortdesc" id="shortdesc" required rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Long Description</label>
+        <textarea class="form-control" name="longdesc" id="longdesc" required rows="10" ></textarea>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="exampleFormControlSelect1">Number of Points</label>
+          <select class="form-control" name="points" id="points" required>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="exampleFormControlSelect1">Timespan</label>
+          <select class="form-control" name="timespan" id="timespan" required>
+            <option>One day</option>
+            <option>One week</option>
+            <option>One month</option>
+            <option>Less than six months</option>
+            <option>Less than one year</option>
+            <option>More than one year</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Set Featured Image</label>
+        <!-- <input type="file" class="form-control-file" name="featuredimage" id="featuredimage"> -->
+        <input type="file" class="form-control-file border" id="fileInput">
+        <div class="progress-bar pgr" style="width:0%">0%</div>
+      </div>
+      <div class="full">
+        <button class="btn btn-light btn-lg btn-block full" type="submit" id="submit">Submit form</button>
+      </div>
+    </form>
+</div>
+
+
+
+
+
+
+      <!-- Blank div to give the page height to preview the fixed vs. static navbar-->
+      <!-- <div style="height: 1000px;"></div> -->
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © GoCity 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Bootstrap core JavaScript-->
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+    <!-- Custom scripts for this page-->
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="js/form.js"></script>
+    <!-- Toggle between fixed and static navbar-->
+    <!-- <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    }); -->
+
+    <!-- </script> -->
+    <!-- Toggle between dark and light navbar-->
+    <!-- <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
+
+    </script> -->
+  </div>
+</body>
+
+</html>

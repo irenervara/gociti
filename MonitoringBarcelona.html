@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Go Citi !</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- leaflet -->
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <!-- geojson -->
+  <script src="data/RTLines.geoJSON"></script>
+  <script src="data/airpollution.geoJSON"></script>
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body class="sticky-footer bg-light" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar-expand-lg navbar-light bg-light static-top" id="mainNav">
+    <!-- <a class="navbar-brand" href="newNAVBAR-closed.html">Go City !</a> -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+<!-- sidebar -->
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="GoCity">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-dot-circle-o"></i>
+            <span class="nav-link-text"><b><i>Go Citi</i></b></span>
+          </a>
+        </li>
+
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Monitoring">
+          <a class="nav-link" href="Monitoring.html">
+            <i class="fa fa-bar-chart"></i>
+            <span class="nav-link-text">Monitoring</span>
+          </a>
+        </li> -->
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Monitoring">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMonitoring" data-parent="#exampleAccordion" href="Campaigns.html">
+            <i class="fa fa-bar-chart"></i>
+            <span class="nav-link-text">Monitoring</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMonitoring">
+            <li>
+              <a href="MonitoringMob.html">Mobility</a>
+            </li>
+            <li>
+              <a>Built Environment</a>
+            </li>
+            <li>
+              <a href="MonitoringEnviro.html">Environmental Cleanliness</a>
+            </li>
+            <li>
+              <a>Ressource Efficiency</a>
+            </li>
+            <li>
+              <a>Daily Needs</a>
+            </li>
+            <li>
+              <a href="MonitoringBarcelona.html">Smart Citizen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Campaigns">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCampaigns" data-parent="#exampleAccordion" href="Campaigns.html">
+            <i class="fa fa-rocket"></i>
+            <span class="nav-link-text">City Campaigns</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseCampaigns">
+            <li>
+              <a href="CityCampaigns.html">Latest</a>
+            </li>
+            <!-- <li>
+              <a href="CityCampaigns.html">Rewards</a>
+            </li> -->
+            <!-- <li>
+              <a href="CityCampaigns.html">Number of Points</a>
+            </li>
+            <li>
+              <a href="CityCampaigns.html">Required Timespan</a>
+            </li> -->
+            <!-- <li>
+              <a href="CityCampaigns.html">Scale Impact</a>
+            </li> -->
+            <li>
+              <a href="CampaignForm.html">Add Campaign</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My Account">
+          <a class="nav-link" href="MyAccount.html">
+            <i class="fa fa-user"></i>
+            <span class="nav-link-text">My Account</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="AboutUs">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAboutUs" data-parent="#exampleAccordion">
+            <i class="fa fa-home"></i>
+            <span class="nav-link-text">About Us</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseAboutUs">
+            <li>
+              <a href="What.html">What do we do?</a>
+            </li>
+            <!-- <li>
+              <a href="What.html #How">How does it work?</a>
+            </li> -->
+          </ul>
+        </li>
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left" style="font-size:25px"; height="50px"></i>
+            </a>
+          </li>
+        </ul>
+      </ul>
+
+
+<!-- wrapper -->
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid" id="myspace">
+
+
+      <div class=intro-text id=intro-text>
+          <!-- <a class="nav-link text-left" id="sidenavToggler"><pi class="fa fa-fw fa-angle-left"style="font-size:40px"></pi> -->
+          <h2>Monitoring</h2>
+      </div>
+      </br>
+
+
+
+
+
+
+<!-- row1 -->
+      <div class="card-deck">
+        <div class="card mb-6 border-0">
+          <div class="card-body">
+            <h7 class="card-title">Smart Citizen</h7></br>
+            <p2 class="card-text">The Smart Citizen Kit is an urban monitoring tool based on environmental data, which empowers citizens by enabling them to constantly monitor environmental data around them, share and compare those numbers from anywhere they go.</br></br>Data is read from the Smart Citizen Kit device number 4293, installed in Plaça del Sol, Barcelona.</br>Extracted values from temperature, humidity, noise and light sensors.</2>
+            </br></br></br>
+          </div>
+        </div>
+        <div class="card border-0">
+        </div>
+        <div class="card border-0">
+
+        </div>
+
+      </div>
+<!-- row2 -->
+
+      <div class="card-deck" id="citizenbox">
+
+        <div class="card border-0 col-2" style="background-color: #2d3f56">
+          <div class="card-body">
+            <img src="images/icon/temp-2.png" width="50" height="50"/><h13 class="card-text" > Air Temperature </h13></br>
+            <h14 class="card-text realtimetemp"></h14></br>
+            <p2 class="card-text" style="color: #798699">Air temperature is a measure of how hot or cold the air is. It is the most commonly measured weather parameter. Air temperature is dependent on the amount and strength of the sunlight hitting the earth, and atmospheric conditions, such as cloud cover and humidity, which trap heat.</p2>
+          </div>
+        </div>
+        <div class="card border-0 col-10" style="background-color: #2d3f56">
+        <div id="smartcitizentemp"></div>
+        </div>
+
+      </div>
+      </br>
+
+<!-- row3 -->
+
+      <div class="card-deck" id="citizenbox">
+
+        <div class="card border-0 col-2" style="background-color: #2d3f56">
+          <div class="card-body">
+            <img src="images/icon/hum-3.png" width="40" height="40"/><h13 class="card-text" style="color:#ffce00"> Humidity </h13></br>
+            <h14 class="card-text realtimehum"></h14></br>
+            <p2 class="card-text" style="color: #798699">Relative humidity is a measure of the amount of moisture in the air relative to the total amount of moisture the air can hold. For instance, if the relative humidity was 50%, then the air is only half saturated with moisture.</p2>
+          </div>
+        </div>
+        <div class="card border-0 col-10" style="background-color: #2d3f56">
+        <div id="smartcitizenhum"></div>
+        </div>
+
+      </div>
+      </br>
+
+
+<!-- row3 -->
+
+      <div class="card-deck" id="citizenbox">
+
+        <div class="card border-0 col-2" style="background-color: #2d3f56">
+          <div class="card-body">
+            <img src="images/icon/noise-3.png" width="40" height="40"/><h13 class="card-text" style="color:#c8ff00" > Noise </h13></br>
+            <h14 class="card-text realtimenoise"></h14></br>
+            <p2 class="card-text" style="color: #798699">dB's measure sound pressure difference between the average local pressure and the pressure in the sound wave. A quiet library is below 40dB, your house is around 50dB and a diesel truck in your street 90dB.</p2>
+          </div>
+        </div>
+        <div class="card border-0 col-10" style="background-color: #2d3f56">
+        <div id="smartcitizennoise"></div>
+        </div>
+
+      </div>
+      </br>
+
+<!-- row4 -->
+
+      <div class="card-deck" id="citizenbox">
+
+        <div class="card border-0 col-2" style="background-color: #2d3f56">
+          <div class="card-body">
+            <img src="images/icon/light-3.png" width="40" height="40"/><h13 class="card-text" style="color:#ff00b1"> Light </h13></br>
+            <h14 class="card-text realtimelight"></h14></br>
+            <p2 class="card-text" style="color: #798699">Lux is a measure of how much light is spread over a given area. A full moon clear night is around 1 lux, inside an office building you usually have 400 lux and a bright day can be more than 20000 lux.</p2>
+          </div>
+        </div>
+        <div class="card border-0 col-10" style="background-color: #2d3f56">
+        <div id="smartcitizenlight"></div>
+        </div>
+
+      </div>
+      </br>
+
+
+
+      <!-- Blank div to give the page height to preview the fixed vs. static navbar-->
+      <!-- <div style="height: 1000px;"></div> -->
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © GoCity 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <!-- <script src="js/sb-admin.min.js"></script> -->
+
+
+    <!-- Custom scripts for this page-->
+    <!-- <script src="js/sb-admin-monitoringmob.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="js/sb-admin-monitoringbarcelona.js"></script>
+    <!-- Toggle between fixed and static navbar-->
+    <!-- <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    }); -->
+
+    <!-- </script> -->
+    <!-- Toggle between dark and light navbar-->
+    <!-- <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
+
+    </script> -->
+  </div>
+</body>
+
+</html>

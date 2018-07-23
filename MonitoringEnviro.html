@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Go Citi !</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- Papaparse -->
+  <script src="js/PapaParse-4.4.0/papaparse.min.js"></script>
+  <!-- leaflet -->
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <!-- geojson -->
+  <script src="data/noise.geoJSON"></script>
+  <script src="data/airpollution.geoJSON"></script>
+<!-- Andre -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="js/PapaParse-4.4.0/papaparse.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" > -->
+  <link href="style/style.css" rel="stylesheet">
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Numeric JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+
+</head>
+
+<body class="sticky-footer bg-light" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar-expand-lg navbar-light bg-light static-top" id="mainNav">
+    <!-- <a class="navbar-brand" href="newNAVBAR-closed.html">Go City !</a> -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+<!-- sidebar -->
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="GoCity">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-dot-circle-o"></i>
+            <span class="nav-link-text"><b><i>Go Citi</i></b></span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Monitoring">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMonitoring" data-parent="#exampleAccordion" href="Campaigns.html">
+            <i class="fa fa-bar-chart"></i>
+            <span class="nav-link-text">Monitoring</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMonitoring">
+            <li>
+              <a href="MonitoringMob.html">Mobility</a>
+            </li>
+            <li>
+              <a>Built Environment</a>
+            </li>
+            <li>
+              <a href="MonitoringEnviro.html">Environmental Cleanliness</a>
+            </li>
+            <li>
+              <a>Ressource Efficiency</a>
+            </li>
+            <li>
+              <a>Daily Needs</a>
+            </li>
+            <li>
+              <a href="MonitoringBarcelona.html">Smart Citizen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Campaigns">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCampaigns" data-parent="#exampleAccordion" href="Campaigns.html">
+            <i class="fa fa-rocket"></i>
+            <span class="nav-link-text">City Campaigns</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseCampaigns">
+            <li>
+              <a href="CityCampaigns.html">Latest</a>
+            </li>
+            <!-- <li>
+              <a href="CityCampaigns.html">Rewards</a>
+            </li> -->
+            <!-- <li>
+              <a href="CityCampaigns.html">Number of Points</a>
+            </li>
+            <li>
+              <a href="CityCampaigns.html">Required Timespan</a>
+            </li> -->
+            <!-- <li>
+              <a href="CityCampaigns.html">Scale Impact</a>
+            </li> -->
+            <li>
+              <a href="CampaignForm.html">Add Campaign</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="MyAccount">
+          <a class="nav-link" href="MyAccount.html">
+            <i class="fa fa-user"></i>
+            <span class="nav-link-text">My Account</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="AboutUs">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAboutUs" data-parent="#exampleAccordion">
+            <i class="fa fa-home"></i>
+            <span class="nav-link-text">About Us</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseAboutUs">
+            <li>
+              <a href="What.html">What do we do?</a>
+            </li>
+            <!-- <li>
+              <a href="What.html #How">How does it work?</a>
+            </li> -->
+          </ul>
+        </li>
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left" style="font-size:25px"; height="50px"></i>
+            </a>
+          </li>
+        </ul>
+      </ul>
+
+
+<!-- wrapper -->
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid" id="myspace">
+
+
+      <div class=intro-text id=intro-text>
+          <!-- <a class="nav-link text-left" id="sidenavToggler"><pi class="fa fa-fw fa-angle-left"style="font-size:40px"></pi> -->
+          <h2>Monitoring</h2>
+      </div>
+      </br>
+
+
+
+      <div class="card-deck">
+        <div class="card mb-6 border-0">
+            <div class="card-body">
+              <h7 class="card-title">Environmental Cleanliness</h7></br>
+                <p2 class="card-text">As a factor contributing to the health of a city, environmental cleanliness in one of the indicators best describing the sustainability and performance of a city. Here, we take a look at how the different variables affecting this indicator are performing in Red Town.
+                </br></br>Click on the buttons below to explore each of the variables affecting the neighborhood's mobility dynamics</2>
+                </br></br>
+
+              <!-- <div class="btn-group btn-group-justified btn-block">
+                  <a href="#" class="btn btn-outline-secondary" id="newbottac">Pollution</a>
+                  <a href="#recycling" class="btn btn-outline-secondary" id="newbott">Recycling</a>
+              </div> -->
+              </br></br>
+              <h12 class="card-text"> Air Quality levels </h12>
+              </br></br>
+              <!-- <div class="card-deck" id="mycentered"> -->
+              <div class="btn-group btn-group-justified btn-block">
+                  <a href="#" class="btn btn-outline-secondary a_all" id="newbott">All</a>
+                  <a href="#" class="btn btn-outline-secondary a_ok" id="newbott">High</a>
+                  <a href="#" class="btn btn-outline-secondary a_medium" id="newbott">Medium</a>
+                  <a href="#" class="btn btn-outline-secondary a_bad" id="newbott">Low</a>
+                <!-- </div> -->
+              </div>
+              </br></br>
+              <h12 class="card-text">Noise levels</h12>
+              </br></br>
+              <!-- <div class="card-deck" id="mycentered"> -->
+              <div class="btn-group btn-group-justified btn-block">
+                <a href="#" class="btn btn-outline-secondary  n_all" id="newbott">All</a>
+                <a href="#" class="btn btn-outline-secondary  n_ok" id="newbott">High</a>
+                <a href="#" class="btn btn-outline-secondary n_medium" id="newbott">Medium</a>
+                <a href="#" class="btn btn-outline-secondary  n_bad"id="newbott">Low</a>
+              </div>
+              </br></br>
+
+                </br></br></br>
+                <a href="CityCampaigns.html" class="btn btn-light btn-lg btn-block" id="btn-join">Go to related campaigns</a>
+
+
+              <!-- </div> -->
+            </div>
+        </div>
+        <div class="card">
+          <!-- </div> -->
+          <div id="mapid"></div>
+          <!-- <img class="card-img-top" src="images/monitoring/staticimages_map2.png" alt="Card image cap"> -->
+          <div class="card-body">
+            <h7 class="card-title">Air quality</h7></br>
+            <p2 class="card-text">A common issue affecting China’s health as a whole and often spoken of in the headlines, air pollution levels are constantly measured and visualised in Red Town to enable the users in general and residents in particular to constantly see the results of pollution on their neighborhood.</p2>
+          </div>
+        </div>
+        <div class="card">
+          <div id="mapid2"></div>
+          <!-- <img class="card-img-top" src="images/monitoring/staticimages_map2.png" alt="Card image cap"> -->
+          <div class="card-body">
+            <h7 class="card-title">Noise levels</h7></br>
+            <p2 class="card-text">Noise, commonly known as unwanted sound is a ubiquitous aspect of a city. Sound levels measured using decibels are visualised in the map above where we can notice the areas that are in desperate need of an urban intervention to provide balance to the residents and users of Red Town.</p2>
+          </div>
+        </div>
+
+      </div>
+
+</br>
+      <div class="card-deck" id="recycling">
+
+        <div class="card mb-6 border-0">
+            <div class="card-body">
+              </br></br></br></br></br>
+              <!-- <div class="btn-group btn-group-justified btn-block">
+                  <a href="#pollution" class="btn btn-outline-secondary" id="newbott">Pollution</a>
+                  <a href="#recycling" class="btn btn-outline-secondary" id="newbottac">Recycling</a>
+              </div> -->
+
+            </div>
+        </div>
+
+
+        <div class="card">
+          <div id="myDiv"></div>          <script></script>
+          <!-- <img class="card-img-top" src="images/monitoring/staticimages_map2.png" alt="Card image cap"> -->
+          <div class="card-body">
+            <h7 class="card-title">Recycling Rates</h7></br>
+            <p2 class="card-text">To encourage recycling among the different users of the neighborhood, we track the amount of waste generated by each user and display them according to their categories (dry, wet, harmful, recyclable and collectors). We are then able to detect the behavioural change of each user towards waste by comparing the charts over a series of time.</p2>
+          </div>
+        </div>
+        <div class="card">
+          <div id="myDiv2"></div>          <script></script>
+          <!-- <img class="card-img-top" src="images/monitoring/staticimages_map2.png" alt="Card image cap"> -->
+          <div class="card-body">
+            <h7 class="card-title">Comparison to Shanghai average</h7></br>
+            <p2 class="card-text">In this chart, we can calculate the amount of waste generated by Red Town and display it in comparison with Shanghai’s waste.</p2>
+          </div>
+        </div>
+      </div>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
+
+<!-- old grid -->
+      <!-- <div class="row">
+        <div class="col-sm-4">
+          <div class="card text-white bg-info mb-3">
+            <div class="card-header">First chart</div>
+            <div class="card-body">
+              <h5 class="card-title">Hello i am the first chart</h5>
+              <p class="card-text">Bla bla bli bli blo blo blu blu, i am the text of the first chart. </br>Can you read me?</br>Oh yes i can!</p> -->
+            <!-- </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-white bg-info mb-3">
+            <div class="card-header">I am a map</div>
+            <img class="card-img-top" src="images/monitoring/static_images_pollution.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Hello i am the second chart</h5>
+              <p class="card-text">Bla bla bli bli blo blo blu blu, i am the text of the second chart. </br>Can you read me?</br>Oh yes i can!</p>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="col-sm-4">
+          <div class="card text-white bg-info mb-3">
+            <div class="card-header">First chart</div>
+            <div class="card-body">
+              <h5 class="card-title">Hello i am the first chart</h5>
+              <p class="card-text">Bla bla bli bli blo blo blu blu, i am the text of the first chart. </br>Can you read me?</br>Oh yes i can!</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card text-white bg-info mb-3">
+          <div class="card-header">Third chart</div>
+          <div class="card-body">
+            <h5 class="card-title">Hello i am the biggest chart</h5>
+            <p class="card-text">Bla bla bli bli blo blo blu blu, i am the text of the biggest chart. </br>Can you read me?</br>Oh yes i can!</p>
+          </div>
+        </div>
+      </div> -->
+    <!-- </div> -->
+
+
+
+
+      <!-- Blank div to give the page height to preview the fixed vs. static navbar-->
+      <!-- <div style="height: 1000px;"></div> -->
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © GoCity 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+    <!-- Custom scripts for this page-->
+    <!-- Toggle between fixed and static navbar-->
+    <!-- <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    }); -->
+
+    <!-- </script> -->
+    <!-- Toggle between dark and light navbar-->
+    <!-- <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
+
+    </script> -->
+  </div>
+</body>
+
+</html>
