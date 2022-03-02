@@ -14,7 +14,7 @@ var devRef = firebase.database().ref('bcn-device-super');
 
 
 $.ajax({
-        url: 'https://api.smartcitizen.me/v0/devices/14042/readings?sensor_id=12&rollup=4h&from=2022-02-15&to=2022-03-03',
+        url: 'https://api.smartcitizen.me/v0/devices/4293/readings?sensor_id=12&rollup=4h&from=2018-05-22&to=2018-06-20',
         method: 'GET',
         async: true,
         success: function(data){
